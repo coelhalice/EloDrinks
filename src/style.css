@@ -1,0 +1,68 @@
+@import 'tailwindcss';
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --primary-500: #101820;
+  --secondary-500:#F7F6F3
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-row-table: var(--row-table);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-white: var(--white);
+  --color-tab-line: var(--tab-line);
+  --color-input: var(--input);
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+  --color-secondary: var(--secondary-500);
+  --color-success: var(--success-500);
+  --color-success-600: var(--success-600);
+  --color-error: var(--error-500);
+  --color-error-600: var(--error-600);
+  --color-blue-50: var(--blue-50);
+  --color-blue: var(--blue-500);
+  --radius: var(--radius);
+  --color-neutral-50: var(--neutral-50);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-900: var(--neutral-900);
+  --color-sidebar-background: var(--sidebar-background);
+  --color-sidebar-disabled-top: var(--sidebar-disabled-top);
+  --color-sidebar-item-active: var(--sidebar-item-active);
+  --color-sidebar-item-active-border: var(--sidebar-item-active-border);
+  --color-tag-success: var(--tag-success);
+  --color-tag-warning: var(--tag-warning);
+  --color-tag-info: var(--tag-info);
+  --color-tag-default: var(--tag-default);
+  --color-tag-inactive: var(--tag-inactive);
+  --color-chart-bar: var(--chart-bar);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+  --color-chart-7: var(--chart-7);
+  --color-chart-8: var(--chart-8);
+  --color-chart-9: var(--chart-9);
+  --color-chart-10: var(--chart-10);
+}
