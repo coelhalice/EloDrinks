@@ -46,9 +46,13 @@ export const Quote = () => {
     )
   }
 
-
   const total = () => {
-    const allItems = [...drinks, ...ginAndCaipirinhas, ...nonAlcoholic, ...extras]
+    const allItems = [
+      ...drinks,
+      ...ginAndCaipirinhas,
+      ...nonAlcoholic,
+      ...extras,
+    ]
     const itemsTotal = selectedItems.reduce((sum, name) => {
       const item = allItems.find(i => i.name === name)
       return sum + (item?.price || 0)
@@ -87,9 +91,11 @@ export const Quote = () => {
           </div>
           <div className='flex w-full flex-col items-center gap-4'>
             <h4 className='text-2xl'>Balcão</h4>
-            <Select onValueChange={(value) =>{
-              setCounterType(parseInt(value))
-            }} >
+            <Select
+              onValueChange={value => {
+                setCounterType(parseInt(value))
+              }}
+            >
               <SelectTrigger className='w-[300px]'>
                 <SelectValue placeholder='---' />
               </SelectTrigger>
@@ -102,9 +108,11 @@ export const Quote = () => {
           </div>
           <div className='flex w-full flex-col items-center gap-4'>
             <h4 className='text-2xl'>Funcionários</h4>
-            <Select onValueChange={(value) =>{
-              setStaff(parseInt(value))
-            }} >
+            <Select
+              onValueChange={value => {
+                setStaff(parseInt(value))
+              }}
+            >
               <SelectTrigger className='w-[300px]'>
                 <SelectValue placeholder='---' />
               </SelectTrigger>
@@ -119,13 +127,16 @@ export const Quote = () => {
           </div>
         </div>
 
-        <div className='flex flex-col gap-8' >
+        <div className='flex flex-col gap-8'>
           <div className='flex w-full flex-col gap-5'>
             <h2 className='text-2xl font-semibold'>Drinks</h2>
             <div className='flex flex-col gap-2'>
               {drinks.map(item => (
-                <div className='flex items-center gap-2' >
-                  <label key={item.name} className='flex items-center w-fit text-xl'>
+                <div className='flex items-center gap-2'>
+                  <label
+                    key={item.name}
+                    className='flex w-fit items-center text-xl'
+                  >
                     <input
                       type='checkbox'
                       checked={selectedItems.includes(item.name)}
@@ -135,7 +146,7 @@ export const Quote = () => {
                     {item.name}
                   </label>
                   <hr className='mt-[6px] flex-grow border border-secondary' />
-                  <p className='m-0 text-xl' >R${item.price.toFixed(2)}</p>
+                  <p className='m-0 text-xl'>R${item.price.toFixed(2)}</p>
                 </div>
               ))}
             </div>
@@ -146,19 +157,22 @@ export const Quote = () => {
               Gin tônica e caipirinhas
             </h2>
             {ginAndCaipirinhas.map(item => (
-              <div className='flex items-center gap-2' >
-              <label key={item.name} className='flex items-center w-fit text-xl'>
-                <input
-                  type='checkbox'
-                  checked={selectedItems.includes(item.name)}
-                  onChange={() => handleItemChange(item.name)}
-                  className='mr-2'
-                />
-                {item.name}
-              </label>
-              <hr className='mt-[6px] flex-grow border border-secondary' />
-              <p className='m-0 text-xl' >R${item.price.toFixed(2)}</p>
-            </div>
+              <div className='flex items-center gap-2'>
+                <label
+                  key={item.name}
+                  className='flex w-fit items-center text-xl'
+                >
+                  <input
+                    type='checkbox'
+                    checked={selectedItems.includes(item.name)}
+                    onChange={() => handleItemChange(item.name)}
+                    className='mr-2'
+                  />
+                  {item.name}
+                </label>
+                <hr className='mt-[6px] flex-grow border border-secondary' />
+                <p className='m-0 text-xl'>R${item.price.toFixed(2)}</p>
+              </div>
             ))}
           </div>
 
@@ -167,55 +181,61 @@ export const Quote = () => {
               Bebidas não alcoólicas
             </h2>
             {nonAlcoholic.map(item => (
-              <div className='flex items-center gap-2' >
-              <label key={item.name} className='flex items-center w-fit text-xl'>
-                <input
-                  type='checkbox'
-                  checked={selectedItems.includes(item.name)}
-                  onChange={() => handleItemChange(item.name)}
-                  className='mr-2'
-                />
-                {item.name}
-              </label>
-              <hr className='mt-[6px] flex-grow border border-secondary' />
-              <p className='m-0 text-xl' >R${item.price.toFixed(2)}</p>
-            </div>
+              <div className='flex items-center gap-2'>
+                <label
+                  key={item.name}
+                  className='flex w-fit items-center text-xl'
+                >
+                  <input
+                    type='checkbox'
+                    checked={selectedItems.includes(item.name)}
+                    onChange={() => handleItemChange(item.name)}
+                    className='mr-2'
+                  />
+                  {item.name}
+                </label>
+                <hr className='mt-[6px] flex-grow border border-secondary' />
+                <p className='m-0 text-xl'>R${item.price.toFixed(2)}</p>
+              </div>
             ))}
           </div>
 
           <div>
             <h2 className='mb-2 text-2xl font-semibold'>Extras</h2>
             {extras.map(extra => (
-              <div className='flex items-center gap-2' >
-              <label key={extra.name} className='flex items-center w-fit text-xl'>
-                <input
-                  type='checkbox'
-                  checked={selectedItems.includes(extra.name)}
-                  onChange={() => handleItemChange(extra.name)}
-                  className='mr-2'
-                />
-                {extra.name}
-              </label>
-              <hr className='mt-[6px] flex-grow border border-secondary' />
-              <p className='m-0 text-xl' >R${extra.price.toFixed(2)}</p>
-            </div>
+              <div className='flex items-center gap-2'>
+                <label
+                  key={extra.name}
+                  className='flex w-fit items-center text-xl'
+                >
+                  <input
+                    type='checkbox'
+                    checked={selectedItems.includes(extra.name)}
+                    onChange={() => handleItemChange(extra.name)}
+                    className='mr-2'
+                  />
+                  {extra.name}
+                </label>
+                <hr className='mt-[6px] flex-grow border border-secondary' />
+                <p className='m-0 text-xl'>R${extra.price.toFixed(2)}</p>
+              </div>
             ))}
           </div>
         </div>
 
-        <div className='mt-8 text-xl flex w-full justify-between bg-secondary p-2'>
-          <p className='text-primary' >Total:</p>
-          <p className='text-primary font-semibold' >R${total()}</p>
+        <div className='mt-8 flex w-full justify-between bg-secondary p-2 text-xl'>
+          <p className='text-primary'>Total:</p>
+          <p className='font-semibold text-primary'>R${total()}</p>
         </div>
 
-        <div className='w-full flex justify-end mt-10' >
-        <button
-          className='mt-4 rounded-full bg-[#9E430E] px-9 py-2 text-secondary transition-opacity duration-300 hover:opacity-90 self-end'
-          onClick={() => navigate('/checkout')}
+        <div className='mt-10 flex w-full justify-end'>
+          <button
+            className='mt-4 self-end rounded-full bg-[#9E430E] px-9 py-2 text-secondary transition-opacity duration-300 hover:opacity-90'
+            onClick={() => navigate('/checkout')}
           >
-          Fechar serviço! ➞
-        </button>
-          </div>
+            Fechar serviço! ➞
+          </button>
+        </div>
       </div>
     </div>
   )

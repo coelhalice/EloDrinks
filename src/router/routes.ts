@@ -3,6 +3,8 @@ export const AppRoutes = {
     key: "/",
     PAGES: {
       quote: "orcamento",
+      OrcamentoAdmin: "admin",
+      login: 'login',
     },
   },
 } as const;
