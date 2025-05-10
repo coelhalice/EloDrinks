@@ -1,5 +1,8 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { UserModal } from "@/presentation/components/internal/userModal";
+import { Button } from "@/presentation/components/ui/button";
+import { Input } from "@/presentation/components/ui/input";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/presentation/components/ui/table";
 import { ListFilter, MoreVertical } from "lucide-react";
 
 export function AdminUsersPage() {
@@ -24,16 +27,16 @@ export function AdminUsersPage() {
 
       <div>
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-          <input
+          <Input
             type="text"
             placeholder="Pesquisar usuários..."
             className="flex-1 px-4 py-2 rounded-md bg-[#0A0F17] text-[#F7F6F3] placeholder:text-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#9E430E]"
           />
           <div className="flex gap-2">
-            <button className="flex items-center gap-2 px-4 py-2 rounded-md border border-gray-600 text-sm text-gray-200 hover:bg-[#1a1a1a] transition">
+            <Button className="flex items-center gap-2 px-4 py-2 rounded-md border border-gray-600 text-sm text-gray-200 hover:bg-[#1a1a1a] transition">
               <ListFilter className="w-4 h-6" />
               Filtros
-            </button>
+            </Button>
 
             <UserModal />
             
@@ -45,28 +48,28 @@ export function AdminUsersPage() {
         </div>
 
         <div>
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="bg-[#101820] text-[#F7F6F3]">
-                <th className="text-left w-2/5 px-4 py-2">Nome</th>
-                <th className="text-left  px-4 py-2">E-mail</th>
-                <th className="text-left  px-4 py-2">Cargo</th>
-                <th className="text-right  px-4 py-2"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b border-gray-700 ">
-                <td className="px-4 py-3 text-[#F7F6F3]">Yves Antônio</td>
-                <td className="px-4 py-3 text-[#F7F6F3]">yvesan12@gmail.com</td>
-                <td className="px-4 py-3 text-[#F7F6F3]">Administrador</td>
-                <td className="px-4 py-3 text-right">
-                  <button className="text-[#F7F6F3] hover:text-[#ccc] transition">
+          <Table>
+            <TableHeader className="bg-[#101820]">
+              <TableRow>
+                <TableHead className="w-2/5 text-[#F7F6F3]">Nome</TableHead>
+                <TableHead className="text-[#F7F6F3]">E-mail</TableHead>
+                <TableHead className="text-[#F7F6F3]">Cargo</TableHead>
+                <TableHead className="text-right text-[#F7F6F3]"></TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow className="border-b border-gray-700">
+                <TableCell className="text-[#F7F6F3]">Yves Antônio</TableCell>
+                <TableCell className="text-[#F7F6F3]">yvesan12@gmail.com</TableCell>
+                <TableCell className="text-[#F7F6F3]">Administrador</TableCell>
+                <TableCell className="text-right">
+                  <Button variant="ghost" size="icon" className="text-[#F7F6F3] hover:text-[#ccc]">
                     <MoreVertical className="w-5 h-5" />
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  </Button>
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </div>
       </div>
     </div>

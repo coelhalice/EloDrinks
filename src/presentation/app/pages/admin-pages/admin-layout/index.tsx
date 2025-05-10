@@ -1,4 +1,5 @@
-import { useLocation } from "react-router-dom";
+import { Button } from "@/presentation/components/ui/button";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface AdminLayoutProps {
   children?: React.ReactNode;
@@ -6,6 +7,7 @@ interface AdminLayoutProps {
 
 export function AdminLayout({ children }: AdminLayoutProps) {
   const location = useLocation();
+  const navigate = useNavigate()
 
   return (
     <div className="flex h-screen w-screen bg-[#0A0F17]">
@@ -21,24 +23,36 @@ export function AdminLayout({ children }: AdminLayoutProps) {
           </div>
 
           <div className="space-y-2 mt-4">
-            <button  className={`w-full text-left px-4 py-2 rounded text-lg hover:bg-[#1a1a1a] ${
+            <Button 
+              variant="ghost" 
+              className={`w-full justify-start px-4 py-2 rounded text-lg hover:bg-[#1a1a1a] ${
                 location.pathname === '/admin' ? 'text-orange-500' : 'text-[#F7F6F3]'
-              }`}>
+              }`}
+              onClick={() => navigate("/admin")}
+            >
               Usuários
-            </button>
-            <button className="w-full text-left px-4 py-2 rounded text-lg hover:bg-[#1a1a1a] text-[#F7F6F3]">
+            </Button>
+            <Button 
+              variant="ghost" 
+              className={`w-full justify-start px-4 py-2 rounded text-lg hover:bg-[#1a1a1a] ${
+                location.pathname === '/admin/beverages' ? 'text-orange-500' : 'text-[#F7F6F3]'
+              }`}
+              onClick={() => navigate("/admin/beverages")}
+            >
               Bebidas
-            </button>
-            <button className="w-full text-left px-4 py-2 rounded text-lg hover:bg-[#1a1a1a] text-[#F7F6F3]">
+            </Button>
+            <Button 
+              variant="ghost"
+              className="w-full justify-start px-4 py-2 rounded text-lg hover:bg-[#1a1a1a] text-[#F7F6F3]">
               Orçamentos
-            </button>
+            </Button>
           </div>
         </div>
 
         <div className="border-t border-[#fff] pt-4">
-          <button className="w-full text-center px-4 py-2 rounded text-lg hover:bg-[#1a1a1a] text-[#F7F6F3]">
+          <Button className="w-full text-center px-4 py-2 rounded text-lg hover:bg-[#1a1a1a] text-[#F7F6F3]">
             Logout
-          </button>
+          </Button>
         </div>
       </div>
 
