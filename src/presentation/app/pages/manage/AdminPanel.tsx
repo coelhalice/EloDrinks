@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { OrcamentoAdmin } from "../quote/admin-quote";
 import { UsuariosAdmin } from "./usersAdmin";
 import { MenuIcon, XIcon } from "lucide-react";
 import { cn } from "@/utils/cn";
+import { OrcamentoAdmin } from "../quote/admin-quote";
 
 export const AdminPanel = () => {
   const [view, setView] = useState<"orcamento" | "usuarios">("orcamento");
@@ -14,7 +14,7 @@ export const AdminPanel = () => {
 
       <aside  className={cn("hidden sm:block  w-64 bg-[#101820] p-6 space-y-4", sidemenuIsOpen && 'block')}>
         
-          <XIcon className="text-secondary cursor-pointer sm:hidden " onClick={() => setSidemenuIsOpen(!sidemenuIsOpen)} />
+        <XIcon className="text-secondary cursor-pointer sm:hidden " onClick={() => setSidemenuIsOpen(!sidemenuIsOpen)} />
         
         <img
           src="/plogo.svg"
@@ -22,33 +22,36 @@ export const AdminPanel = () => {
           className="h-16 mx-auto mb-6"
         />
 
-        <button
-          onClick={() => setView("orcamento")}
-          className={`w-full text-left px-4 py-2 rounded ${
-            view === "orcamento"
-              ? "bg-[#9E430E]"
-              : "hover:bg-[#1a1a1a] text-[#F7F6F3]"
-          }`}
-        >
-          Gerenciamento Orçamento
-        </button>
+        <div className="bg-white w-full border-t-[1px] border-[#fff]" />
+
         <button
           onClick={() => setView("usuarios")}
-          className={`w-full text-left px-4 py-2 rounded ${
+          className={`w-full text-left px-4 py-2 rounded text-lg ${
             view === "usuarios"
               ? "bg-[#9E430E]"
               : "hover:bg-[#1a1a1a] text-[#F7F6F3]"
           }`}
         >
-          Gerenciamento Usuários
+          Usuários
+        </button>
+
+        <button
+          onClick={() => setView("orcamento")}
+          className={`w-full text-left px-4 py-2 rounded text-lg ${
+            view === "orcamento"
+              ? "bg-[#9E430E]"
+              : "hover:bg-[#1a1a1a] text-[#F7F6F3]"
+          }`}
+        >
+          Bebidas
         </button>
       </aside>
 
-{!sidemenuIsOpen && <div  className="absolute sm:hidden top-2 left-2  " >
-      <MenuIcon onClick={() => setSidemenuIsOpen(!sidemenuIsOpen)} className="text-secondary cursor-pointer" />
-</div>}
+      {!sidemenuIsOpen && <div  className="absolute sm:hidden top-2 left-2  " >
+        <MenuIcon onClick={() => setSidemenuIsOpen(!sidemenuIsOpen)} className="text-secondary cursor-pointer" />
+      </div>}
 
-      {/* Conteúdo */}
+      
       <main className="flex-1 p-8">
         {view === "orcamento" ? <OrcamentoAdmin /> : <UsuariosAdmin />}
       </main>

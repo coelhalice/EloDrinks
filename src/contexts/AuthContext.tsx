@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 type User = {
   id: string;
-  first: string;
+  first_name: string;
   last_name: string;
   email: string;
   role: string;
