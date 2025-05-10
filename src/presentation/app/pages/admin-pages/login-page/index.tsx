@@ -1,4 +1,6 @@
 import { useAuth } from "@/contexts/AuthContext";
+import { Button } from "@/presentation/components/ui/button";
+import { Input } from "@/presentation/components/ui/input";
 import { useState } from "react";
 
 export function LoginPage() {
@@ -25,7 +27,7 @@ export function LoginPage() {
           <input
             type="email"
             placeholder="Digite seu e-mail..."
-            className="w-full px-4 py-2 rounded bg-[#0A0F17] text-[#F7F6F3] placeholder:text-gray-500 border border-gray-600"
+            className="w-full px-4 py-2 rounded-md bg-[#0A0F17] text-[#F7F6F3] placeholder:text-gray-500 border border-gray-600"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -33,21 +35,22 @@ export function LoginPage() {
 
         <div className="mb-6">
           <label className="block text-sm text-[#F7F6F3] mb-1">Sua senha</label>
-          <input
+          <Input
             type="password"
             placeholder="Digite sua senha..."
-            className="w-full px-4 py-2 rounded bg-[#0A0F17] text-[#F7F6F3] placeholder:text-gray-500 border border-gray-600"
+            className="w-full px-4 py-2 rounded-md bg-[#0A0F17] text-[#F7F6F3] placeholder:text-gray-500 border border-gray-600"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
         </div>
 
-        <button
+        <Button
+          variant="ghost"
           onClick={handleLogin}
-          className="w-full bg-[#9E430E] hover:bg-[#ad5522] text-white py-2 rounded transition"
+          className="w-full bg-[#9E430E] hover:bg-[#ad5522] text-white py-2 rounded-md transition"
         >
           Logar
-        </button>
+        </Button>
       </div>
     </section>
   );

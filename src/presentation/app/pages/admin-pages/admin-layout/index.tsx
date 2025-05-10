@@ -1,5 +1,7 @@
+import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/presentation/components/ui/button";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 interface AdminLayoutProps {
   children?: React.ReactNode;
@@ -8,6 +10,17 @@ interface AdminLayoutProps {
 export function AdminLayout({ children }: AdminLayoutProps) {
   const location = useLocation();
   const navigate = useNavigate()
+
+  const { logout } = useAuth()
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      console.error("Erro ao fazer logout:", error);
+      toast.error("Erro ao fazer logout.");
+    }
+  }
 
   return (
     <div className="flex h-screen w-screen bg-[#0A0F17]">
@@ -50,7 +63,10 @@ export function AdminLayout({ children }: AdminLayoutProps) {
         </div>
 
         <div className="border-t border-[#fff] pt-4">
-          <Button className="w-full text-center px-4 py-2 rounded text-lg hover:bg-[#1a1a1a] text-[#F7F6F3]">
+          <Button 
+            variant="ghost"
+            onClick={handleLogout}
+            className="w-full text-center px-4 py-2 rounded text-lg hover:bg-[#1a1a1a] text-[#F7F6F3]">
             Logout
           </Button>
         </div>
