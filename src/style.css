@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@import "react-toastify/dist/ReactToastify.css";
+
 :root {
   --primary-500: #101820;
   --secondary-500:#F7F6F3

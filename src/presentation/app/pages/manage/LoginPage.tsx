@@ -1,13 +1,19 @@
+import { useAuth } from "@/contexts/AuthContext";
 import { useState } from "react";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
-  const handleLogin = () => {
-    // Aqui você pode fazer validação, chamada à API ou redirecionamento
-    console.log("Email:", email, "Senha:", senha);
-  };
+  const { login } = useAuth()
+
+  const handleLogin = async () => {
+    try {
+      await login(email, senha);
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+    }
+  }
 
   return (
     <section className="min-h-screen bg-[#0A0F17] flex items-center justify-center px-4 w-screen">
@@ -38,7 +44,7 @@ export const LoginPage = () => {
 
         <button
           onClick={handleLogin}
-          className="w-full bg-[#9E430E] hover:opacity-90 text-white py-2 rounded transition"
+          className="w-full bg-[#9E430E] hover:bg-[#ad5522] text-white py-2 rounded transition"
         >
           Logar
         </button>
