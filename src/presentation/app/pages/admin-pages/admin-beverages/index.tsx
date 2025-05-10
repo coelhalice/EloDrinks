@@ -2,10 +2,11 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { Input } from "@/presentation/components/ui/input"
 import { Button } from "@/presentation/components/ui/button"
-import { ListFilter, MoreVertical } from "lucide-react"
+import { ListFilter } from "lucide-react"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/presentation/components/ui/table"
 import { BeverageModal } from "@/presentation/components/internal/beverageModal"
 import { useAuth } from "@/contexts/AuthContext"
+import { TableActions } from "@/presentation/components/internal/tableActions"
 
 type Beverage = {
   id: string;
@@ -81,10 +82,8 @@ export function AdminBeveragesPage() {
               <TableCell className="text-[#F7F6F3]">{bev.type}</TableCell>
               <TableCell className="text-[#F7F6F3]">{bev.description}</TableCell>
               <TableCell className="text-[#F7F6F3]">R$ {bev.price.toFixed(2)}</TableCell>
-              <TableCell className="text-right">
-                <Button variant="ghost" size="icon" className="text-[#F7F6F3]">
-                  <MoreVertical className="w-5 h-5" />
-                </Button>
+              <TableCell className="text-right ">
+                <TableActions type="beverages" id={bev.id} onDeleteSuccess={fetchBeverages}/>
               </TableCell>
             </TableRow>
           ))}
