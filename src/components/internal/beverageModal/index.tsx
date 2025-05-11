@@ -5,12 +5,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/presentation/components/ui/dialog"
+} from "@/components/ui/dialog"
 
-import { Input } from "@/presentation/components/ui/input"
-import { Label } from "@/presentation/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/presentation/components/ui/select"
-import { Button } from "@/presentation/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Button } from "@/components/ui/button"
 
 import { useForm } from "react-hook-form"
 import { z } from "zod"

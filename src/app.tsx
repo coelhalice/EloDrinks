@@ -1,10 +1,11 @@
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
-import { LandingPage } from './app/pages/landing-page/index.tsx'
-import { LoginPage } from './app/pages/admin-pages/login-page/index'
-import { AdminLayout } from './app/pages/admin-pages/admin-layout/index'
-import { AdminUsersPage } from './app/pages/admin-pages/admin-users/index'
-import { AuthProvider } from '@/contexts/AuthContext.jsx'
-import { AdminBeveragesPage } from './app/pages/admin-pages/admin-beverages/index.jsx'
+import { AuthProvider } from './contexts/AuthContext'
+import { LandingPage } from './pages/landing-page/index.tsx'
+import { LoginPage } from './pages/admin-pages/login-page'
+import { AdminLayout } from './pages/admin-pages/admin-layout'
+import { AdminUsersPage } from './pages/admin-pages/admin-users'
+import { AdminBeveragesPage } from './pages/admin-pages/admin-beverages'
+
 
 export default function App() {
   return (

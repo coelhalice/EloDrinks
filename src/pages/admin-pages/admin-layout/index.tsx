@@ -1,5 +1,5 @@
 import { useAuth } from "@/contexts/AuthContext";
-import { Button } from "@/presentation/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 

@@ -3,7 +3,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/presentation/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu"
 
 import { MoreVertical } from "lucide-react"
 import { DeleteModal } from "../deleteModal"

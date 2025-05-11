@@ -5,12 +5,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/presentation/components/ui/dialog"
+} from "@/components/ui/dialog"
 
-import { Input } from "@/presentation/components/ui/input"
-import { Label } from "@/presentation/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/presentation/components/ui/select"
-import { Button } from "@/presentation/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Button } from "@/components/ui/button"
 
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -20,8 +20,8 @@ import { PlusIcon } from "lucide-react"
 import { toast } from "react-toastify"
 
 const userSchema = z.object({
-  firstName: z.string().min(1, "Nome é obrigatório"),
-  lastName: z.string().min(1, "Sobrenome é obrigatório"),
+  first_name: z.string().min(1, "Nome é obrigatório"),
+  last_name: z.string().min(1, "Sobrenome é obrigatório"),
   email: z.string().email("Email inválido"),
   password: z.string().min(6, "A senha deve ter no mínimo 6 caracteres"),
   role: z.enum(["admin", "user"], {
@@ -31,7 +31,11 @@ const userSchema = z.object({
 
 type UserForm = z.infer<typeof userSchema>
 
-export function UserModal() {
+type UserModalProps = {
+  onCreated?: () => void
+}
+
+export function UserModal({ onCreated }: UserModalProps) {
   const {
     register,
     handleSubmit,
@@ -41,8 +45,8 @@ export function UserModal() {
   } = useForm<UserForm>({
     resolver: zodResolver(userSchema),
     defaultValues: {
-      firstName: '',
-      lastName: '',
+      first_name: '',
+      last_name: '',
       email: '',
       password: '',
       role: undefined,
@@ -54,6 +58,7 @@ export function UserModal() {
       await axios.post('http://localhost:3333/users', data)
       reset()
       toast.success("Usuário criado com sucesso!")
+      onCreated?.() // <- chama o fetch na tela principal
     } catch (error ) {
       const message = axios.isAxiosError(error) && error.response?.data?.message 
         ? error.response.data.message 
@@ -83,14 +88,14 @@ export function UserModal() {
           <div className="flex gap-4">
             <div className="flex-1">
               <Label htmlFor="name">Nome</Label>
-              <Input id="name" placeholder="Nome" className="mt-2" {...register("firstName")} />
-              {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName.message}</p>}
+              <Input id="name" placeholder="Nome" className="mt-2" {...register("first_name")} />
+              {errors.first_name && <p className="text-red-500 text-sm">{errors.first_name.message}</p>}
             </div>
 
             <div className="flex-1">
               <Label htmlFor="surname">Sobrenome</Label>
-              <Input id="surname" placeholder="Sobrenome" className="mt-2" {...register("lastName")} />
-              {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName.message}</p>}
+              <Input id="surname" placeholder="Sobrenome" className="mt-2" {...register("last_name")} />
+              {errors.last_name && <p className="text-red-500 text-sm">{errors.last_name.message}</p>}
             </div>
           </div>
 
