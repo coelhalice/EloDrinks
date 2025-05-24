@@ -1,4 +1,4 @@
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "@/contexts/auth-context";
 import { UserModal } from "@/components/internal/userModal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

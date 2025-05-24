@@ -1,11 +1,26 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useBudget } from "@/contexts/budget-context";
 
-export function EventConfigForm() {
+export function BudgetDetails() {
+  const { updateGuests, updateCounters, updateStaff } = useBudget();
+
+  const handleGuestsChange = (value: string) => {
+    updateGuests(Number(value));
+  };
+
+  const handleCountersChange = (value: string) => {
+    updateCounters(Number(value));
+  };
+
+  const handleStaffChange = (value: string) => {
+    updateStaff(Number(value));
+  };
+
   return (
     <div className="w-full px-20 mx-auto text-[#fff] grid grid-cols-1 md:grid-cols-3 gap-6">
       <div>
         <label className="block font-semibold mb-2">Número de convidados</label>
-        <Select>
+        <Select onValueChange={handleGuestsChange}>
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Selecione" />
           </SelectTrigger>
@@ -21,7 +36,7 @@ export function EventConfigForm() {
 
       <div>
         <label className="block font-semibold mb-2">Balcão</label>
-        <Select>
+        <Select onValueChange={handleCountersChange}>
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Selecione" />
           </SelectTrigger>
@@ -37,7 +52,7 @@ export function EventConfigForm() {
 
       <div>
         <label className="block font-semibold mb-2">Funcionários</label>
-        <Select>
+        <Select onValueChange={handleStaffChange}>
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Selecione" />
           </SelectTrigger>
