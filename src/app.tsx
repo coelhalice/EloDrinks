@@ -5,6 +5,7 @@ import { LoginPage } from './pages/admin-pages/login-page'
 import { AdminLayout } from './pages/admin-pages/admin-layout'
 import { AdminUsersPage } from './pages/admin-pages/admin-users'
 import { AdminBeveragesPage } from './pages/admin-pages/admin-beverages'
+import BudgetPage from './pages/budget-page'
 
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
       <AuthProvider>
       <Routes>
         <Route path="/" element={<LandingPage />}/>
+        <Route path="/orcamento" element={<BudgetPage />}/>
         <Route path="/login" element={<LoginPage />}/>
         <Route path="/admin" element={<AdminLayout children={<AdminUsersPage />} />}/>
         <Route path="/admin/beverages" element={<AdminLayout children={<AdminBeveragesPage />} />}/>
