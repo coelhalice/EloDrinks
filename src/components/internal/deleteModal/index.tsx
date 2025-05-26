@@ -27,6 +27,8 @@ export function DeleteModal({ type, id, open, onOpenChange, onSucess }: DeleteMo
     typeString = "Usuário"
   } else if (type === "beverages") {
     typeString = "Bebida"
+  } else if (type === "budgets") {
+    typeString = "Orçamento"
   }
 
   const handleDelete = async () => {
@@ -36,7 +38,7 @@ export function DeleteModal({ type, id, open, onOpenChange, onSucess }: DeleteMo
           Authorization: `Bearer ${localStorage.getItem('authToken')}`,
         },
       })
-      toast.success(`${typeString} deletad${type === "users" ? "o" : "a"} com sucesso!`)
+      toast.success(`${typeString} deletad${type === "users" || type === "budgets" ? "o" : "a"} com sucesso!`)
       onOpenChange(false)
       onSucess?.()
     } catch (error) {
@@ -51,9 +53,9 @@ export function DeleteModal({ type, id, open, onOpenChange, onSucess }: DeleteMo
     <AlertDialog open={open} onOpenChange={onOpenChange}>
       <AlertDialogContent className="bg-[#101820] text-[#FFF]">
         <AlertDialogHeader>
-          <AlertDialogTitle>Você tem certeza que quer DELETAR {type === "users" ? "esse" : "essa"} {typeString}?</AlertDialogTitle>
+          <AlertDialogTitle>Você tem certeza que quer DELETAR {type === "users" || type === "budget" ? "esse" : "essa"} {typeString}?</AlertDialogTitle>
           <AlertDialogDescription>
-            Esta ação não pode ser desfeita. Isso irá deletar {type === "users" ? "esse" : "essa"} {typeString} e remover seus dados de nossos servidores.
+            Esta ação não pode ser desfeita. Isso irá deletar {type === "users" || type === "budget" ? "esse" : "essa"} {typeString} e remover seus dados de nossos servidores.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

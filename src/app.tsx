@@ -8,6 +8,7 @@ import { AdminBeveragesPage } from './pages/admin-pages/admin-beverages'
 import BudgetPage from './pages/budget-page'
 import { BudgetProvider } from './contexts/budget-context'
 import CheckoutPage from './pages/checkout-page'
+import { AdminBudgetsPage } from './pages/admin-pages/admin-budgets'
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
             <Route path="/login" element={<LoginPage />}/>
             <Route path="/admin" element={<AdminLayout children={<AdminUsersPage />} />}/>
             <Route path="/admin/beverages" element={<AdminLayout children={<AdminBeveragesPage />} />}/>
+            <Route path="/admin/budgets" element={<AdminLayout children={<AdminBudgetsPage />} />}/>
           </Routes>
         </BudgetProvider>
       </AuthProvider>

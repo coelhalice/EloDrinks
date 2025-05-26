@@ -56,7 +56,10 @@ export function AdminLayout({ children }: AdminLayoutProps) {
             </Button>
             <Button 
               variant="ghost"
-              className="w-full justify-start px-4 py-2 rounded text-lg hover:bg-[#1a1a1a] text-[#F7F6F3]">
+              className={`w-full justify-start px-4 py-2 rounded text-lg hover:bg-[#1a1a1a] ${
+                location.pathname === '/admin/budgets' ? 'text-orange-500' : 'text-[#F7F6F3]'
+              }`}
+              onClick={() => navigate("/admin/budgets")}>
               Orçamentos
             </Button>
           </div>
