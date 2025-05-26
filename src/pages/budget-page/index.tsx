@@ -3,6 +3,7 @@ import { BeverageSelector } from "./beverage-selector";
 import { BudgetDetails } from "./budget-details";
 import { ArrowRight } from "lucide-react";
 import { useBudget } from "@/contexts/budget-context";
+import { Header } from "@/components/internal/header";
 
 export default function BudgetPage() {
 
@@ -11,14 +12,8 @@ export default function BudgetPage() {
 
 
   return (
-    <div className="bg-[#101820] min-h-screen py-10 px-4 flex flex-col gap-10">
-      <header className="flex flex-row text-[#fff] items-center justify-around mb-8 px-10 text-xl w-full">
-        <span className="cursor-pointer hover:underline w-[100px]">INÍCIO</span>
-        <span className="cursor-pointer hover:underline w-[100px]">SERVIÇO</span>
-        <img src="/logo.svg" alt="Logo" className="h-16 w-[100px]" />
-        <span className="cursor-pointer hover:underline w-[100px]">ORÇAMENTO</span>
-        <span className="cursor-pointer hover:underline w-[100px]">CONTATO</span>
-      </header>
+    <div className="bg-[#101820] min-h-screen py-5 px-4 flex flex-col gap-10">
+      <Header />
       <div>
         <h1 className="text-3xl md:text-4xl font-semibold text-[#fff] text-center mb-8">
           Monte seu orçamento

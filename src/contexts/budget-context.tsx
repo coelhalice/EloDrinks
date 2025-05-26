@@ -27,6 +27,7 @@ type BudgetContextType = {
   updateStaff: (value: number) => void;
   budget: number;
   handleBudgetFinish: () => void;
+  resetBudget: () => void;
 };
 
 const BudgetContext = createContext({} as BudgetContextType);
@@ -83,6 +84,19 @@ export const BudgetProvider = ({ children }: { children: ReactNode }) => {
       navigate(`/orcamento/${budgetData.id}`)
     };
 
+
+    const resetBudget = () => {
+    setData({
+      id: uuidv4(),
+      beverages: {},
+      guests: 0,
+      counters: 0,
+      staff: 0,
+      budget: 0,
+    });
+  };
+
+
   
   return (
     <BudgetContext.Provider
@@ -94,6 +108,7 @@ export const BudgetProvider = ({ children }: { children: ReactNode }) => {
         updateStaff,
         budget,
         handleBudgetFinish,
+        resetBudget
       }}
     >
       {children}

@@ -35,12 +35,11 @@ const beverageSchema = z.object({
   price: z.number().min(0, "Preço deve ser maior que 0"),
 })
 
-type UserForm = z.infer<typeof beverageSchema>
+type BeverageForm = z.infer<typeof beverageSchema>
 
 type BeverageModalProps = {
   onCreated?: () => void
 }
-
 export function BeverageModal({ onCreated }: BeverageModalProps) {
   const {
     register,
@@ -48,7 +47,7 @@ export function BeverageModal({ onCreated }: BeverageModalProps) {
     setValue,
     formState: { errors },
     reset,
-  } = useForm<UserForm>({
+  } = useForm<BeverageForm>({
     resolver: zodResolver(beverageSchema),
     defaultValues: {
       name: '',
@@ -58,7 +57,7 @@ export function BeverageModal({ onCreated }: BeverageModalProps) {
     },
   })
 
-  const onSubmit = async (data: UserForm) => {
+  const onSubmit = async (data: BeverageForm) => {
     try {
       await axios.post('http://localhost:3333/beverages', data, {
         headers: {
