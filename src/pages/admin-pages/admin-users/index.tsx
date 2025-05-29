@@ -4,10 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ListFilter } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TableActions } from "@/components/internal/tableActions";
 import { fetcher } from "@/lib/fetcher";
 import useSWR from "swr";
+import { useNavigate } from "react-router-dom";
 
 type User = {
   id: string;
@@ -21,6 +22,13 @@ type User = {
 export function AdminUsersPage() {
   const user = useAuth()
   const [search, setSearch] = useState("")
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!user.token) {
+      navigate("/login");
+    }
+  }, [user.token, navigate]);
 
   // Só faz fetch a cada 30 segundos, não toda vez que a página é carregada
   const { data, isLoading, error, mutate } = useSWR(

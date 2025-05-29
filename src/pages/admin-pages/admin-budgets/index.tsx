@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { ListFilter } from "lucide-react"
@@ -14,6 +14,7 @@ import { useAuth } from "@/contexts/auth-context"
 import { TableActions } from "@/components/internal/tableActions"
 import { fetcher } from "@/lib/fetcher"
 import useSWR from "swr"
+import { useNavigate } from "react-router-dom"
 
 type Beverage = {
   id: string
@@ -38,6 +39,13 @@ type Budget = {
 export function AdminBudgetsPage() {
   const user = useAuth()
   const [search, setSearch] = useState("")
+  const navigate = useNavigate()
+
+  useEffect(() => {
+      if (!user.token) {
+        navigate("/login");
+      }
+    }, [user.token, navigate]);
 
   const { data, isLoading, error, mutate } = useSWR(
     "http://localhost:3333/budgets",

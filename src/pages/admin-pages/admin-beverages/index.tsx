@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 // import axios from "axios"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -9,6 +9,7 @@ import { useAuth } from "@/contexts/auth-context"
 import { TableActions } from "@/components/internal/tableActions"
 import { fetcher } from "@/lib/fetcher"
 import useSWR from "swr"
+import { useNavigate } from "react-router-dom"
 
 type Beverage = {
   id: string;
@@ -23,6 +24,13 @@ export function AdminBeveragesPage() {
   const user = useAuth()
   // const [beverages, setBeverages] = useState<Beverage[]>([])
   const [search, setSearch] = useState("")
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!user.token) {
+      navigate("/login");
+    }
+  }, [user.token, navigate]);
 
   // Só faz fetch a cada 30 segundos, não toda vez que a página é carregada
   const { data, isLoading, error, mutate } = useSWR(

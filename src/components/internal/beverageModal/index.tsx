@@ -23,11 +23,11 @@ import { Textarea } from "../../ui/textarea"
 const beverageSchema = z.object({
   name: z.string().min(1, "Nome é obrigatório"),
   type: z.enum([
-  "destilados",
-  "fermentadas",
-  "shots",
-  "coqueteis",
-  "nao-alcoolicas"
+  "Destilados",
+  "Fermentadas",
+  "Shots",
+  "Coquetéis",
+  "Não alcoolicas"
 ], {
   required_error: "O tipo da bebida é obrigatório",
 }),
@@ -102,7 +102,7 @@ export function BeverageModal({ onCreated }: BeverageModalProps) {
 
             <div className="flex-1">
               <Label htmlFor="type" className="pb-2">Tipo</Label>
-              <Select onValueChange={(value) => setValue("type", value as "destilados" | "fermentadas" | "shots" | "coqueteis" | "nao-alcoolicas")}>
+              <Select onValueChange={(value) => setValue("type", value as "Destilados" | "Fermentadas" | "Shots" | "Coquetéis" | "Não alcoolicas")}>
                 <SelectTrigger className="bg-[#0A0F17] text-[#F7F6F3] border-gray-600">
                   <SelectValue placeholder="Selecione um tipo" />
                 </SelectTrigger>
