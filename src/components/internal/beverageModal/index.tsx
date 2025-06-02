@@ -107,11 +107,11 @@ export function BeverageModal({ onCreated }: BeverageModalProps) {
                   <SelectValue placeholder="Selecione um tipo" />
                 </SelectTrigger>
                 <SelectContent className="bg-[#101820] text-[#fff]">
-                  <SelectItem value="destilados">Destilados</SelectItem>
-                  <SelectItem value="fermentadas">Fermentadas</SelectItem>
-                  <SelectItem value="shots">Shots</SelectItem>
-                  <SelectItem value="coqueteis">Coquetéis</SelectItem>
-                  <SelectItem value="nao-alcoolicas">Não alcoólicas</SelectItem>
+                  <SelectItem value="Destilados">Destilados</SelectItem>
+                  <SelectItem value="Fermentadas">Fermentadas</SelectItem>
+                  <SelectItem value="Shots">Shots</SelectItem>
+                  <SelectItem value="Coquetéis">Coquetéis</SelectItem>
+                  <SelectItem value="Não alcoolicas">Não alcoólicas</SelectItem>
                 </SelectContent>
               </Select>
               {errors.type && <p className="text-red-500 text-sm">{errors.type.message}</p>}

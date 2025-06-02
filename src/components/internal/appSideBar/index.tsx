@@ -53,7 +53,7 @@ export function AppSidebar() {
 
   return (
     <Sidebar className="bg-[#101820]" collapsible="icon">
-      <SidebarHeader>
+      <SidebarHeader className="bg-[#101820]">
         <div className="flex items-center border-b border-[#fff] pb-2" onClick={() => navigate("/")}>
           {state === "expanded" && (
             <img
@@ -71,12 +71,12 @@ export function AppSidebar() {
             )}
         </div>
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="bg-[#101820]">
         <SidebarGroup>
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-2 mt-4">
+            <SidebarMenu className="space-y-2 mt-4 bg-[#101820]">
               {items.map((item) => (
-                <SidebarMenuItem key={item.title} className={`text-[#F7F6F3] hover:bg-[#1a1a1a] ${location.pathname === item.url ? 'bg-[#9E430E]' : ''}`}>
+                <SidebarMenuItem key={item.title} className={`text-[#F7F6F3] rounded-lg hover:bg-[#1a1a1a] ${location.pathname === item.url ? 'bg-[#9E430E]' : ''}`}>
                   <SidebarMenuButton asChild>
                     <a onClick={() => navigate(item.url)} className="flex items-center gap-2">
                       <item.icon className="h-6 w-6" />
@@ -89,7 +89,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className="bg-[#101820]">
         <div className="flex items-center justify-center p-2">
           <a
             onClick={() => handleLogout()}
