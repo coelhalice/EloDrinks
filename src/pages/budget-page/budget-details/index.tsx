@@ -19,12 +19,12 @@ export function BudgetDetails() {
   return (
     <div className="w-full px-20 mx-auto text-[#fff] grid grid-cols-1 md:grid-cols-3 gap-6">
       <div>
-        <label className="block font-semibold mb-2">Número de convidados</label>
+        <label id="guests-label" className="block font-semibold mb-2">Número de convidados</label>
         <Select onValueChange={handleGuestsChange}>
-          <SelectTrigger className="w-full">
+          <SelectTrigger className="w-full" aria-labelledby="guests-label">
             <SelectValue placeholder="Selecione" />
           </SelectTrigger>
-          <SelectContent className="text-[#fff] bg-[#101820]" >
+          <SelectContent className="text-[#fff] bg-[#101820]">
             {[50, 100, 200, 300, 400].map((n) => (
               <SelectItem key={n} value={n.toString()}>
                 {n}
@@ -35,9 +35,9 @@ export function BudgetDetails() {
       </div>
 
       <div>
-        <label className="block font-semibold mb-2">Balcão</label>
+        <label id="counter-label" className="block font-semibold mb-2">Balcão</label>
         <Select onValueChange={handleCountersChange}>
-          <SelectTrigger className="w-full">
+          <SelectTrigger className="w-full" aria-labelledby="counter-label">
             <SelectValue placeholder="Selecione" />
           </SelectTrigger>
           <SelectContent className="text-[#fff] bg-[#101820]">
@@ -51,9 +51,9 @@ export function BudgetDetails() {
       </div>
 
       <div>
-        <label className="block font-semibold mb-2">Funcionários</label>
+        <label id="staff-label" className="block font-semibold mb-2">Funcionários</label>
         <Select onValueChange={handleStaffChange}>
-          <SelectTrigger className="w-full">
+          <SelectTrigger className="w-full" aria-labelledby="staff-label">
             <SelectValue placeholder="Selecione" />
           </SelectTrigger>
           <SelectContent className="text-[#fff] bg-[#101820]">

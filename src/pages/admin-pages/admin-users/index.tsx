@@ -30,7 +30,7 @@ export function AdminUsersPage() {
     }
   }, [user.token, navigate]);
 
-  // Só faz fetch a cada 30 segundos, não toda vez que a página é carregada
+  
   const { data, isLoading, error, mutate } = useSWR(
     "http://localhost:3333/users", 
     fetcher,

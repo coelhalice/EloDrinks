@@ -18,4 +18,14 @@ export default defineConfig({
       '@types': path.resolve(__dirname, './src/domain/types'),
     },
   },
+  test: {
+    environment: 'jsdom',
+    setupFiles: './vitest.setup.ts',
+    globals: true,
+     environmentOptions: {
+      jsdom: {
+        resources: 'usable',
+      },
+    },
+  },
 })

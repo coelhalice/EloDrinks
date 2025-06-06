@@ -102,7 +102,7 @@ export default function CheckoutPage() {
           </div>
         </div>
         
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-row gap-4 mt-5 items-center">
+        <form role="form" onSubmit={handleSubmit(onSubmit)} className="flex flex-row gap-4 mt-5 items-center">
           <Input
             type="email"
             {...register("email")}

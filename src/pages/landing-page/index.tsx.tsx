@@ -8,7 +8,7 @@ export const LandingPage = () => {
     
     return (
       <>
-        <section className="w-full h-lvh bg-[url('/fundo1.png')] flex flex-col items-center bg-center min-h-screen py-5 px-4 text-secondary">
+        <section role="main" className="w-full h-lvh bg-[url('/fundo1.png')] flex flex-col items-center bg-center min-h-screen py-5 px-4 text-secondary">
 
           <Header />
 
