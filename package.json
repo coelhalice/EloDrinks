@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "npm run vitest --config vite.config.mts --reporter verbose"
+    "test": "vitest run --config vite.config.mts --reporter verbose"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
